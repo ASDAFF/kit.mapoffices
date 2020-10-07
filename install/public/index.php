@@ -1,11 +1,15 @@
 <?
+/**
+ * Copyright (c) 7/10/2020 Created By/Edited By ASDAFF asdaff.asad@yandex.ru
+ */
+
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle('Демо страница компонента "Карта офисов"');
 ?>
-<?$IBLOCK_ID = intval(COption::GetOptionString('wsm.mapoffices', 'iblock_demo', 0));?>
+<?$IBLOCK_ID = intval(COption::GetOptionString('kit.mapoffices', 'iblock_demo', 0));?>
 
 
-<?$APPLICATION->IncludeComponent("wsm:offices.yandexmap", ".default", array(
+<?$APPLICATION->IncludeComponent("kit:offices.yandexmap", ".default", array(
 	"IBLOCK_TYPE" => "",
 	"IBLOCK_ID" => $IBLOCK_ID,
 	"CITY" => "N",

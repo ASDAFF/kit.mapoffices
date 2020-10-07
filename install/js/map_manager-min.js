@@ -1,6 +1,10 @@
+/*
+ * Copyright (c) 7/10/2020 Created By/Edited By ASDAFF asdaff.asad@yandex.ru
+ */
+
 ;(function(window) {
  
-	if (window.BX.WSMMapOfficesMap)
+	if (window.BX.KITMapOfficesMap)
 		return;
 		
 	var
@@ -8,7 +12,7 @@
 		defaultConfig = {
 			debug		: false, 
 			
-			map			: 'WSM_MapOffice_YMAP',
+			map			: 'KIT_MapOffice_YMAP',
 			map_center	: [0,0],
 			map_zoom	: 2,
 
@@ -34,7 +38,7 @@
 		traffic_status = false,
 		actualProvider;
 	
-	BX.WSMMapOfficesMap = function(data, params){
+	BX.KITMapOfficesMap = function(data, params){
 
 		var ready_function = function(){};
 		this.data = data;

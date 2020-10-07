@@ -1,14 +1,15 @@
 <?IncludeModuleLangFile(__FILE__);
+/**
+ * Copyright (c) 7/10/2020 Created By/Edited By ASDAFF asdaff.asad@yandex.ru
+ */
 
 echo CAdminMessage::ShowNote(GetMessage("MOD_INST_OK"));
-$path = COption::GetOptionString('wsm.mapoffices', 'path_demo');
+$path = COption::GetOptionString('kit.mapoffices', 'path_demo');
 ?>
 
-<?if($_REQUEST["wsm_install_demo"] == 'Y'):?>
+<?if($_REQUEST["kit_install_demo"] == 'Y'):?>
 <p><?=GetMessage("GO_TODEMO_SECTION")?>: <a target="_blank" href="/<?=$path;?>/">/<?=$path;?>/</a></p>
 <?endif;?>
-
-<p><?=GetMessage("GO_TO_WSMART_SITE");?><a target="_blank" href="http://w-smart.ru/marketplace/wsm.mapoffices/?from=install">http://w-smart.ru/marketplace/wsm.mapoffices/</a></p>
 
 <form action="<?echo $APPLICATION->GetCurPage()?>">
 	<input type="hidden" name="lang" value="<?echo LANG?>">

@@ -1,19 +1,17 @@
 <?
+/**
+ * Copyright (c) 7/10/2020 Created By/Edited By ASDAFF asdaff.asad@yandex.ru
+ */
+
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
-$module_id = 'wsm.mapoffices';
+$module_id = 'kit.mapoffices';
 $rsModule = CModule::IncludeModuleEx($module_id);
 
 
 if($rsModule == 0)
 {
-    ShowError(GetMessage("WSM_OFFICES_MODULE_NOT_INSTALLED"));
-    return;
-}
-elseif($rsModule == 3)
-{
-    ShowError(GetMessage("WSM_OFFICES_MODULE_BUY_TEXT"));
-    echo '<br/><a href="http://marketplace.1c-bitrix.ru/solutions/wsm.mapoffices/" target="_blank">'.GetMessage("WSM_OFFICES_MODULE_BUY").'</a><br/><br/>';
+    ShowError(GetMessage("KIT_OFFICES_MODULE_NOT_INSTALLED"));
     return;
 }
 
@@ -115,14 +113,14 @@ $arResult["GEO"] = false;
 
 if($arParams["USE_GEOIP"] == "Y")
 {
-	$arResult["GEO"] = WSMMapOffice::GetLocation();
+	$arResult["GEO"] = KITMapOffice::GetLocation();
 	//$arResult["GEO"] = false;
 	
 	if(!$arResult["GEO"])
 		$arParams["USE_GEOIP"] = "N";
 }
 
-WSMMapOffice::Script();
+KITMapOffice::Script();
 
 if($this->StartResultCache(false, array($arParams, $arResult["GEO"], ($arParams["CACHE_GROUPS"]==="N"? false: $USER->GetGroups()), $arrFilter)))
 {
@@ -420,7 +418,7 @@ if($this->StartResultCache(false, array($arParams, $arResult["GEO"], ($arParams[
 	else
 	{
 		$this->AbortResultCache();
-		ShowError(GetMessage("WSM_OFFICES_MODULE_NA"));
+		ShowError(GetMessage("KIT_OFFICES_MODULE_NA"));
 		@define("ERROR_404", "Y");
 		if($arParams["SET_STATUS_404"]==="Y")
 			CHTTP::SetStatus("404 Not Found");

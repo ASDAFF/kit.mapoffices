@@ -1,10 +1,14 @@
 <? global $MESS;
-IncludeModuleLangFile(__FILE__);
-if (class_exists('wsm_mapoffices')) return;
+/**
+ * Copyright (c) 7/10/2020 Created By/Edited By ASDAFF asdaff.asad@yandex.ru
+ */
 
-Class wsm_mapoffices extends CModule
+IncludeModuleLangFile(__FILE__);
+if (class_exists('kit_mapoffices')) return;
+
+Class kit_mapoffices extends CModule
 {
-    var $MODULE_ID = 'wsm.mapoffices';
+    var $MODULE_ID = 'kit.mapoffices';
     var $MODULE_VERSION;
     var $MODULE_VERSION_DATE;
     var $MODULE_NAME;
@@ -19,10 +23,10 @@ Class wsm_mapoffices extends CModule
         include(dirname(__FILE__) . '/version.php');
         $this->MODULE_VERSION = $arModuleVersion['VERSION'];
         $this->MODULE_VERSION_DATE = $arModuleVersion['VERSION_DATE'];
-        $this->MODULE_NAME = GetMessage('wsm.mapoffices_MODULE_NAME');
-        $this->MODULE_DESCRIPTION = GetMessage('wsm.mapoffices_MODULE_DESC');
-        $this->PARTNER_NAME = GetMessage('wsm.mapoffices_PARTNER_NAME');
-        $this->PARTNER_URI = GetMessage('wsm.mapoffices_PARTNER_URI');
+        $this->MODULE_NAME = GetMessage('kit.mapoffices_MODULE_NAME');
+        $this->MODULE_DESCRIPTION = GetMessage('kit.mapoffices_MODULE_DESC');
+        $this->PARTNER_NAME = GetMessage('kit.mapoffices_PARTNER_NAME');
+        $this->PARTNER_URI = GetMessage('kit.mapoffices_PARTNER_URI');
         $_220697396 = dirname(__FILE__);
         $_646427159 = str_replace($_SERVER['DOCUMENT_ROOT'], ' ', $_220697396);
         $_1856655138 = strpos($_646427159, '/local') === 0 ? '/local' : BX_ROOT;
@@ -83,7 +87,7 @@ Class wsm_mapoffices extends CModule
 
     function InstallFiles($_1627882924 = array())
     {
-        $_1627882924['INSTALL_PATH'] = 'wsm_mapoffices_demo';
+        $_1627882924['INSTALL_PATH'] = 'kit_mapoffices_demo';
         $this->AddLog('InstallFiles', $_1627882924);
         $this->AddLog('InstallFiles component', $_SERVER['DOCUMENT_ROOT'] . BX_ROOT . '/components');
         CopyDirFiles($_SERVER['DOCUMENT_ROOT'] . $this->_878322151 . '/install/components', $_SERVER['DOCUMENT_ROOT'] . BX_ROOT . '/components', true, true);
@@ -120,7 +124,7 @@ Class wsm_mapoffices extends CModule
             }
         }
         if (!$_1627882924['SAVE_DEMO_SECTION']) {
-            $_149054505 = 'wsm_mapoffices_demo';
+            $_149054505 = 'kit_mapoffices_demo';
             if (trim($_149054505) != '') {
                 $this->AddLog('Uninstall -> remove dir /' . $_149054505);
                 DeleteDirFilesEx('/' . $_149054505);
@@ -133,13 +137,13 @@ Class wsm_mapoffices extends CModule
     {
         global $APPLICATION, $step;
         $step = IntVal($step);
-        $_149054505 = 'wsm_mapoffices_demo';
-        if ($step < 2) $APPLICATION->IncludeAdminFile(GetMessage('WSM_OFFICESMAP_INSTALL_TITLE'), dirname(__FILE__) . '/step1.php'); elseif ($step == 2) {
-            $_1627882924 = array('INSTALL_DEMO' => $_REQUEST['wsm_install_demo'] == 'Y', 'INSTALL_IBLOCK_TO_TYPE' => htmlspecialcharsEx(trim($_REQUEST['iblock_type'])), 'INSTALL_PATH' => $_149054505,);
+        $_149054505 = 'kit_mapoffices_demo';
+        if ($step < 2) $APPLICATION->IncludeAdminFile(GetMessage('KIT_OFFICESMAP_INSTALL_TITLE'), dirname(__FILE__) . '/step1.php'); elseif ($step == 2) {
+            $_1627882924 = array('INSTALL_DEMO' => $_REQUEST['kit_install_demo'] == 'Y', 'INSTALL_IBLOCK_TO_TYPE' => htmlspecialcharsEx(trim($_REQUEST['iblock_type'])), 'INSTALL_PATH' => $_149054505,);
             $this->InstallFiles($_1627882924);
             $this->InstallDB($_1627882924);
             RegisterModule($this->MODULE_ID);
-            $APPLICATION->IncludeAdminFile(GetMessage('WSM_OFFICESMAP_INSTALL_TITLE'), dirname(__FILE__) . '/step2.php');
+            $APPLICATION->IncludeAdminFile(GetMessage('KIT_OFFICESMAP_INSTALL_TITLE'), dirname(__FILE__) . '/step2.php');
         }
     }
 
@@ -147,13 +151,13 @@ Class wsm_mapoffices extends CModule
     {
         global $APPLICATION, $step;
         $step = IntVal($step);
-        if ($step < 2) $APPLICATION->IncludeAdminFile(GetMessage('WSM_OFFICESMAP_UNINSTALL_TITLE'), dirname(__FILE__) . '/unstep1.php'); elseif ($step == 2) {
+        if ($step < 2) $APPLICATION->IncludeAdminFile(GetMessage('KIT_OFFICESMAP_UNINSTALL_TITLE'), dirname(__FILE__) . '/unstep1.php'); elseif ($step == 2) {
             $_1627882924 = array('SAVE_DEMO_IBLOCK' => $_REQUEST['save_demo_iblock'] == 'Y', 'SAVE_DEMO_SECTION' => $_REQUEST['save_demo_section'] == 'Y',);
             $this->UnInstallDB($_1627882924);
             $this->UnInstallFiles($_1627882924);
             COption::RemoveOption($this->MODULE_ID);
             UnRegisterModule($this->MODULE_ID);
-            $APPLICATION->IncludeAdminFile(GetMessage('WSM_OFFICESMAP_UNINSTALL_TITLE'), dirname(__FILE__) . '/unstep2.php');
+            $APPLICATION->IncludeAdminFile(GetMessage('KIT_OFFICESMAP_UNINSTALL_TITLE'), dirname(__FILE__) . '/unstep2.php');
         }
     }
 } ?>

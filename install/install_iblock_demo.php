@@ -1,5 +1,9 @@
 <?
-$module_id = 'wsm.mapoffices';
+/**
+ * Copyright (c) 7/10/2020 Created By/Edited By ASDAFF asdaff.asad@yandex.ru
+ */
+
+$module_id = 'kit.mapoffices';
 $INSTALL_IBLOCK_TO_TYPE = COption::GetOptionString($module_id, 'iblock_type_demo', '');
 
 self::AddLog('InstallDB -> install_iblock_demo in iblock_type ', $INSTALL_IBLOCK_TO_TYPE);
@@ -12,7 +16,7 @@ while ($arSite = $rsSites->Fetch())
 
 $arFields = Array(
 	"IBLOCK_TYPE_ID" => $INSTALL_IBLOCK_TO_TYPE,
-	"NAME" => GetMessage("wsm.mapoffices_IBLOCK_NAME"),
+	"NAME" => GetMessage("kit.mapoffices_IBLOCK_NAME"),
 	"CODE" => '',
 	"ACTIVE" => 'Y',
 	"SECTION_CHOOSER" => 'C',
@@ -22,12 +26,12 @@ $arFields = Array(
 	"DETAIL_PAGE_URL" => '',
 	"SITE_ID" => $sites,
 	"SORT" => 10,
-	"DESCRIPTION" => GetMessage("wsm.mapoffices_IBLOCK_DESC"),
+	"DESCRIPTION" => GetMessage("kit.mapoffices_IBLOCK_DESC"),
 	"DESCRIPTION_TYPE" => 'text',
-	'ELEMENT_NAME' => GetMessage("wsm.mapoffices_IBLOCK_ELEMENT_NAME_DESC"),
-	'ELEMENTS_NAME' => GetMessage("wsm.mapoffices_IBLOCK_ELEMENTS_NAME_DESC"),
-	'SECTION_NAME' => GetMessage("wsm.mapoffices_IBLOCK_SECTION_NAME_DESC"),
-	'SECTIONS_NAME' => GetMessage("wsm.mapoffices_IBLOCK_SECTIONS_NAME_DESC"),
+	'ELEMENT_NAME' => GetMessage("kit.mapoffices_IBLOCK_ELEMENT_NAME_DESC"),
+	'ELEMENTS_NAME' => GetMessage("kit.mapoffices_IBLOCK_ELEMENTS_NAME_DESC"),
+	'SECTION_NAME' => GetMessage("kit.mapoffices_IBLOCK_SECTION_NAME_DESC"),
+	'SECTIONS_NAME' => GetMessage("kit.mapoffices_IBLOCK_SECTIONS_NAME_DESC"),
 	);
 
 $ib = new CIBlock;		
@@ -51,7 +55,7 @@ if($res)
 
 	$arFields = Array(
 		"IBLOCK_ID" => $ID,
-		"NAME" => GetMessage("wsm.mapoffices_IBLOCK_PROP_YMAP_DESC"),
+		"NAME" => GetMessage("kit.mapoffices_IBLOCK_PROP_YMAP_DESC"),
 		"ACTIVE" => "Y",
 		"SORT" => "100",
 		"CODE" => "YMAP",
@@ -65,7 +69,7 @@ if($res)
     self::AddLog("InstallDB -> install_iblock_demo -> create prop = work time");
 
 	$arFields = Array(
-		"NAME" => GetMessage("wsm.mapoffices_IBLOCK_PROP_WORK_TIME_DESC"),
+		"NAME" => GetMessage("kit.mapoffices_IBLOCK_PROP_WORK_TIME_DESC"),
 		"ACTIVE" => "Y",
 		"SORT" => "300",
 		"CODE" => "WORK_TIME",
@@ -77,7 +81,7 @@ if($res)
     self::AddLog("InstallDB -> install_iblock_demo -> create prop = adres");
 
 	$arFields = Array(
-		"NAME" => GetMessage("wsm.mapoffices_IBLOCK_PROP_ADRES_DESC"),
+		"NAME" => GetMessage("kit.mapoffices_IBLOCK_PROP_ADRES_DESC"),
 		"ACTIVE" => "Y",
 		"SORT" => "200",
 		"CODE" => "ADRES",
@@ -89,7 +93,7 @@ if($res)
     self::AddLog("InstallDB -> install_iblock_demo -> create prop = phone");
 
 	$arFields = Array(
-		"NAME" => GetMessage("wsm.mapoffices_IBLOCK_PROP_PHONE_DESC"),
+		"NAME" => GetMessage("kit.mapoffices_IBLOCK_PROP_PHONE_DESC"),
 		"ACTIVE" => "Y",
 		"SORT" => "200",
 		"CODE" => "PHONE",
@@ -109,13 +113,13 @@ if($res)
 		"IBLOCK_ID"      => $ID,
 		"PROPERTY_VALUES"=> array(
 			'YMAP' => '55.771425617673, 37.649231796295',
-			'ADRES' => GetMessage("wsm.mapoffices_DEMO_EL2_ADRES"),
+			'ADRES' => GetMessage("kit.mapoffices_DEMO_EL2_ADRES"),
 			'WORK_TIME' => '09.00 - 18.00',
 			'PHONE'  => '(495) 123-456-789',
 			),
-		"NAME"           => GetMessage("wsm.mapoffices_DEMO_EL1_NAME"),
+		"NAME"           => GetMessage("kit.mapoffices_DEMO_EL1_NAME"),
 		"ACTIVE"         => "Y",
-		"PREVIEW_TEXT"   => GetMessage("wsm.mapoffices_DEMO_EL1_DESCRIPTION"),
+		"PREVIEW_TEXT"   => GetMessage("kit.mapoffices_DEMO_EL1_DESCRIPTION"),
 		//"DETAIL_PICTURE" => CFile::MakeFileArray($_SERVER["DOCUMENT_ROOT"]."/image.gif")
 		);
 
@@ -130,13 +134,13 @@ if($res)
 		"IBLOCK_ID"      => $ID,
 		"PROPERTY_VALUES"=> array(
 			'YMAP' => '55.8174335281775, 37.56535144907378',
-			'ADRES' => GetMessage("wsm.mapoffices_DEMO_EL2_ADRES"),
+			'ADRES' => GetMessage("kit.mapoffices_DEMO_EL2_ADRES"),
 			'WORK_TIME' => '09.00 - 18.00',
 			'PHONE'  => '(495) 987-654-321',
 			),
-		"NAME"           => GetMessage("wsm.mapoffices_DEMO_EL2_NAME"),
+		"NAME"           => GetMessage("kit.mapoffices_DEMO_EL2_NAME"),
 		"ACTIVE"         => "Y",
-		"PREVIEW_TEXT"   => GetMessage("wsm.mapoffices_DEMO_EL2_DESCRIPTION"),
+		"PREVIEW_TEXT"   => GetMessage("kit.mapoffices_DEMO_EL2_DESCRIPTION"),
 		);
 
 	$PRODUCT_ID = $el->Add($arLoadProductArray);

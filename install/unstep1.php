@@ -1,15 +1,19 @@
 <?IncludeModuleLangFile(__FILE__);?>
 <?
+/**
+ * Copyright (c) 7/10/2020 Created By/Edited By ASDAFF asdaff.asad@yandex.ru
+ */
+
 echo CAdminMessage::ShowNote(GetMessage("MOD_INST_OK"));
-#$path = COption::GetOptionString('wsm.mapoffices', 'path_demo');
+#$path = COption::GetOptionString('kit.mapoffices', 'path_demo');
 #$path = trim($path, '/');
-$path = 'wsm_mapoffices_demo';
+$path = 'kit_mapoffices_demo';
 ?>
 
 <form action="<?echo $APPLICATION->GetCurPage()?>">
 	<?=bitrix_sessid_post()?>
 	<input type="hidden" name="lang" value="<?=LANG?>">
-	<input type="hidden" name="id" value="wsm.mapoffices">
+	<input type="hidden" name="id" value="kit.mapoffices">
 	<input type="hidden" name="uninstall" value="Y">
 	<input type="hidden" name="step" value="2">
 	<?echo CAdminMessage::ShowMessage(GetMessage("MOD_UNINST_WARN"))?>

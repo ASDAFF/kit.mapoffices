@@ -1,14 +1,17 @@
 <?php
+/**
+ * Copyright (c) 7/10/2020 Created By/Edited By ASDAFF asdaff.asad@yandex.ru
+ */
 
 GLOBAL $APPLICATION;
-CModule::AddAutoloadClasses('wsm.mapoffices', array('WSMMapOfficeGeo' => 'classes/general/geo.php',));
+CModule::AddAutoloadClasses('kit.mapoffices', array('KITMapOfficeGeo' => 'classes/general/geo.php',));
 
-Class WSMMapOffice
+Class KITMapOffice
 {
     function Script()
     {
-        CJSCore::RegisterExt('wsm_mapoffices_manager', array('js' => '/bitrix/js/wsm.mapoffices/map_manager-min.js', 'skip_core' => false,));
-        CJSCore::Init(array('wsm_mapoffices_manager'));
+        CJSCore::RegisterExt('kit_mapoffices_manager', array('js' => '/bitrix/js/kit.mapoffices/map_manager-min.js', 'skip_core' => false,));
+        CJSCore::Init(array('kit_mapoffices_manager'));
     }
 
     function YMapGeoCode($_1153776208)
@@ -30,7 +33,7 @@ Class WSMMapOffice
     {
         $_1263157265 = array();
         if (defined('BX_UTF') && BX_UTF === true) $_1263157265['charset'] = 'utf-8';
-        $_75064107 = new WSMMapOfficeGeo($_1263157265);
+        $_75064107 = new KITMapOfficeGeo($_1263157265);
         if (!is_object($_75064107)) return false;
         $_1588012887 = $_75064107->get_value(false, true);
         if (!is_array($_1588012887)) return false;

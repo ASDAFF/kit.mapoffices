@@ -1,4 +1,8 @@
-.wsm_map_offices_block{clear: both;}
+/*
+ * Copyright (c) 7/10/2020 Created By/Edited By ASDAFF asdaff.asad@yandex.ru
+ */
+
+.kit_map_offices_block{clear: both;}
 
 .map_control {color: #919191; font-size: 12px;	padding: 5px 0;	}
 	.map_control .links	{float: right;}
@@ -7,11 +11,11 @@
 		.map_control .links	a:hover {text-shadow: 0px 1px 1px #ccc;}
 	.map_control .geo_info{	float: left;}
 
-.wsm_office_city_celector { display: block; margin: 30px 0 15px 10px; clear: both; }
-	.wsm_office_city_celector a { margin: 0px 10px 0px 0px;	display: inline-block; border-bottom: 1px dashed #367DE2; color: #367DE2; padding: 0px;	
+.kit_office_city_celector { display: block; margin: 30px 0 15px 10px; clear: both; }
+	.kit_office_city_celector a { margin: 0px 10px 0px 0px;	display: inline-block; border-bottom: 1px dashed #367DE2; color: #367DE2; padding: 0px;
 									text-decoration: none !important; cursor: pointer; }
-	.wsm_office_city_celector a:hover {text-shadow: 0px 1px 1px #ccc;}
-	.wsm_office_city_celector a.active {color: #414141;	border-bottom-color: #414141; }
+	.kit_office_city_celector a:hover {text-shadow: 0px 1px 1px #ccc;}
+	.kit_office_city_celector a.active {color: #414141;	border-bottom-color: #414141; }
 	
 
 .officeList {margin: 25px 0px 5px 0px; clear:both;}	
@@ -49,7 +53,7 @@
 		
 	.officeList .officeItem img, .officeList .officeItem .image { position: absolute; top: 0px; right: 0px; float: right; margin: 4px 4px 0px 0px; width: 140px; height: 90px;	}	
 
-#WSM_MapOffice_YMAP{ 
+#KIT_MapOffice_YMAP{
 
 	width: 100%; height: 350px; 
 	border: 1px solid #ccc; 
@@ -60,4 +64,4 @@
 	box-shadow: rgba(0,0,0,.3)0 1px 2px;
 	box-sizing:border-box; -moz-box-sizing:border-box;		
 	}
-#WSM_MapOffice_YMAP:after{clear:both;}
+#KIT_MapOffice_YMAP:after{clear:both;}

@@ -1,32 +1,32 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<div class="wsm_map_offices_block">
+<div class="kit_map_offices_block">
 
 	<div class="ymap">
-		<div id="WSM_MapOffice_YMAP"></div>
+		<div id="KIT_MapOffice_YMAP"></div>
 	</div>
 
 	<div class="map_control">
 		<div class="geo_info">
-			<?if($arResult["CALULATED"]["OTHER_CITY"] && $arParams["CITY"] == "Y"): // ���� ������������ ����� ������������ �� ������ � ��� ������ �������?>
-				<?=GetMessage("WSM_OFFICEMAP_YOUR_CITY")?>:
+			<?if($arResult["CALULATED"]["OTHER_CITY"] && $arParams["CITY"] == "Y"): ?>
+				<?=GetMessage("KIT_OFFICEMAP_YOUR_CITY")?>:
 				<?=$arResult["CITY"][$arResult["CALULATED"]["CITY_ID"]]['NAME'];?>
 			<?elseif($arResult["CALULATED"]["POINT_ID"] > 0 && $arParams["CITY"] != "Y"):?>
-				<?=GetMessage("WSM_OFFICEMAP_YOUR_OFFICE")?>:
+				<?=GetMessage("KIT_OFFICEMAP_YOUR_OFFICE")?>:
 				<?=$arResult["ITEMS"][$arResult["CALULATED"]["POINT_ID"]]['NAME'];?>
 			<?endif;?>
 		</div>
 		<div class="links">
-			<a href="#" map-action="map.setDefault"><?=GetMessage("WSM_SHOW_MAP_CENTER")?></a>
+			<a href="#" map-action="map.setDefault"><?=GetMessage("KIT_SHOW_MAP_CENTER")?></a>
 			<?if($arParams["SHOW_TRAFFIC"] == 'Y'):?>
-			<a href="#" map-action="traffic.toggle"><?=GetMessage("WSM_SHOW_TRAFFIC")?></a>
+			<a href="#" map-action="traffic.toggle"><?=GetMessage("KIT_SHOW_TRAFFIC")?></a>
 			<?endif;?>
 		</div>
 	</div>
 
 	<?if(count($arResult["CITY"]) && $arParams["CITY"] == "Y" && $arParams["CITY_SELECTOR"] != "SELECT"):?>
 		
-		<div class="wsm_office_city_celector">
+		<div class="kit_office_city_celector">
 			<?foreach($arResult["CITY"] as $arCity):?>
 			<a href="#"  map-action="map.setCity" data-id="<?=$arCity['ID'];?>"><?=$arCity['NAME'];?></a>
 			<?endforeach;?>
@@ -34,8 +34,8 @@
 		
 	<?elseif(count($arResult["CITY"]) && $arParams["CITY"] == "Y"):?>
 	
-		<div class="wsm_office_city_celector">
-			<span><?=GetMessage("WSM_MAPOFFICES_CITY")?>:</span>
+		<div class="kit_office_city_celector">
+			<span><?=GetMessage("KIT_MAPOFFICES_CITY")?>:</span>
 			<select map-action="map.setCity">
 			<?foreach($arResult["CITY"] as $arCity):?>
 				<option value="<?=$arCity['ID'];?>"><?=$arCity['NAME'];?></option>
@@ -68,11 +68,11 @@
 				<?endforeach;?>
 				
 				<?if($arItem["HAVE_POSITION_ON_MAP"]):?>
-				<a href="#" class="more onmap" map-action="map.setOffice" data-id="<?=$arItem["ID"]?>"><?=GetMessage("WSM_SHOW_ON_MAP")?></a>
+				<a href="#" class="more onmap" map-action="map.setOffice" data-id="<?=$arItem["ID"]?>"><?=GetMessage("KIT_SHOW_ON_MAP")?></a>
 				<?endif;?>
 				
 				<?if($arItem["IMAGE_B"]):?>
-				<a class="more foto fancybox" target="_blank" href="<?=$arItem["IMAGE_B"]['src']?>"><?=GetMessage("WSM_SHOW_IMAGE")?></a>
+				<a class="more foto fancybox" target="_blank" href="<?=$arItem["IMAGE_B"]['src']?>"><?=GetMessage("KIT_SHOW_IMAGE")?></a>
 				<?endif;?>	
 			</div>	
 			
@@ -94,6 +94,8 @@ $data = "";
 foreach($arResult["ITEMS"] as $arItem)
 {
 	$prop_data = "";
+
+
 	foreach($arItem["DISPLAY_BALOON_PROPERTIES"] as $code => $prop)
     {
         if(is_array($prop['DISPLAY_VALUE']))
@@ -109,7 +111,7 @@ foreach($arResult["ITEMS"] as $arItem)
 		'desc: '.CUtil::PhpToJSObject($arItem['PREVIEW_TEXT'], false, true).','.
 		'prop: '.CUtil::PhpToJSObject($prop_data, false, true).','.   
 		'center: ['.$arItem["PROPERTIES"][$arParams['POINT_POSITION']]['VALUE'].'],'.
-		'url: "'.($arItem['DETAIL_PAGE_URL'] ? '<a href=\"'.$arItem['DETAIL_PAGE_URL'].'\">'.GetMessage("WSM_OFFICEMAP_PODROBNEE").'</a>' : '').'"'.
+		'url: "'.($arItem['DETAIL_PAGE_URL'] ? '<a href=\"'.$arItem['DETAIL_PAGE_URL'].'\">'.GetMessage("KIT_OFFICEMAP_PODROBNEE").'</a>' : '').'"'.
 		'},';
 }
 $data = rtrim($data,',');
@@ -123,13 +125,13 @@ $data = rtrim($data,',');
 	var config = {
 	
 		debug		: false,
-		map			: 'WSM_MapOffice_YMAP',
+		map			: 'KIT_MapOffice_YMAP',
 		map_center	: [<?=$arResult["MAP_CENTER"]?>],
 		map_zoom	: <?=$arResult["MAP_ZOOM"]?>,
 		auto_zoom_correct: -2,
 		city_id: <?=$arResult["CALULATED"]["CITY_ID"]?>,
 		selector_office_block : "selector-office",
-		ymap_api_error: '<?=GetMessage("WSM_YMAP_ERROR")?>',
+		ymap_api_error: '<?=GetMessage("KIT_YMAP_ERROR")?>',
 		ymaps_ready: function(YMap, Collection, data){ 
 		
 			//callback, map ready
@@ -174,9 +176,9 @@ $data = rtrim($data,',');
 					continue;
 
 				if(traffic_status)
-					controls[i].innerHTML = "<?=GetMessage("WSM_HIDE_TRAFFIC")?>"; 
+					controls[i].innerHTML = "<?=GetMessage("KIT_HIDE_TRAFFIC")?>";
 				else
-					controls[i].innerHTML = "<?=GetMessage("WSM_SHOW_TRAFFIC")?>";
+					controls[i].innerHTML = "<?=GetMessage("KIT_SHOW_TRAFFIC")?>";
 				}
 
 			},
@@ -193,7 +195,7 @@ $data = rtrim($data,',');
 			//callback, when click "show on map"
 			//for example: scroll to map
 			
-			BX.scrollToNode('WSM_MapOffice_YMAP');
+			BX.scrollToNode('KIT_MapOffice_YMAP');
 			}	
 
 		};
@@ -202,7 +204,7 @@ var YMapController;
 
 BX.ready(function(){
 	
-	YMapController = new BX.WSMMapOfficesMap(data, config);	
+	YMapController = new BX.KITMapOfficesMap(data, config);
 	//YMapController.ready(function(controller){
 	//	controller.Action('traffic.show');
 	//	});
