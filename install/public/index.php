@@ -50,7 +50,5 @@ $APPLICATION->SetTitle('Демо страница компонента "Карта офисов"');
 	false
 );?>
 <br/><br/>
-<p style="color: #919191;">Описание компонента и документацию можно найти по адресу <a target="_blank" href="http://w-smart.ru/marketplace/mapoffices/">http://w-smart.ru/marketplace/mapoffices/</a></p>
-<br/>
 <br/>
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
