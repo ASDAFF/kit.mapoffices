@@ -1,0 +1,63 @@
+.wsm_map_offices_block{clear: both;}
+
+.map_control {color: #919191; font-size: 12px;	padding: 5px 0;	}
+	.map_control .links	{float: right;}
+		.map_control .links:after{clear:both;}
+		.map_control .links	a{cursor: pointer;	margin-left: 15px; color: #919191;	border-bottom: 1px dashed #919191;	text-decoration: none;	}
+		.map_control .links	a:hover {text-shadow: 0px 1px 1px #ccc;}
+	.map_control .geo_info{	float: left;}
+
+.wsm_office_city_celector { display: block; margin: 30px 0 15px 10px; clear: both; }
+	.wsm_office_city_celector a { margin: 0px 10px 0px 0px;	display: inline-block; border-bottom: 1px dashed #367DE2; color: #367DE2; padding: 0px;	
+									text-decoration: none !important; cursor: pointer; }
+	.wsm_office_city_celector a:hover {text-shadow: 0px 1px 1px #ccc;}
+	.wsm_office_city_celector a.active {color: #414141;	border-bottom-color: #414141; }
+	
+
+.officeList {margin: 25px 0px 5px 0px; clear:both;}	
+	.officeList .officeItem {
+				display: block; margin: 0px; 
+				padding: 0px 10px 20px 10px; display: block; width: 50%; min-height: 150px; float: left; 
+				box-sizing:border-box; -moz-box-sizing:border-box;		
+				}
+
+		.officeList .officeItem .block{ position: relative;	display: inline-block;	padding: 10px 5px 10px 15px; border: 1px solid #ccc; width: 100%; height: 100%; 
+					box-sizing:border-box;	-moz-box-sizing:border-box;	
+					-webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+					-moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+					-o-transition: border linear 0.2s, box-shadow linear 0.2s;
+					transition: border linear 0.2s, box-shadow linear 0.2s;
+					}
+		.officeList .officeItem .block:hover {
+					-webkit-box-shadow: rgba(0,0,0,.5)0 2px 4px;
+					-moz-box-shadow: rgba(0,0,0,.5)0 2px 4px;
+					-o-box-shadow: rgba(0,0,0,.5)0 2px 4px;
+					box-shadow: rgba(0,0,0,.5)0 2px 4px;
+					
+					-webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+					-moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+					-o-transition: border linear 0.2s, box-shadow linear 0.2s;
+					transition: border linear 0.2s, box-shadow linear 0.2s;
+					}						
+		
+		.officeList .officeItem .block:hover  a.more {color: #313131; border-color: #313131;} 
+		
+		.officeList .officeItem h2{	margin: 0px 0px 10px 0px;	}
+		.officeList .officeItem p{	margin: 5px 0px; line-height: 120%;	}
+		.officeList .officeItem a.onmap, .officeList .officeItem a.foto{margin: 10px 10px 0 0;	padding: 0px 0px;	line-height: 150%;	font-size: 10px; color: #919191;	border-bottom: 1px dashed #919191; 	text-decoration: none; 	cursor: pointer; }	
+		.officeList .officeItem a.onmap:hover, .officeList .officeItem a.foto:hover {text-shadow: 0px 1px 1px #ccc; color: #313131; border-color: #313131;}
+		
+	.officeList .officeItem img, .officeList .officeItem .image { position: absolute; top: 0px; right: 0px; float: right; margin: 4px 4px 0px 0px; width: 140px; height: 90px;	}	
+
+#WSM_MapOffice_YMAP{ 
+
+	width: 100%; height: 350px; 
+	border: 1px solid #ccc; 
+	margin: 0 0 10px 0px;	
+	-webkit-box-shadow: rgba(0,0,0,.3)0 1px 2px;
+	-moz-box-shadow: rgba(0,0,0,.3)0 1px 2px;
+	-o-box-shadow: rgba(0,0,0,.3)0 1px 2px;
+	box-shadow: rgba(0,0,0,.3)0 1px 2px;
+	box-sizing:border-box; -moz-box-sizing:border-box;		
+	}
+#WSM_MapOffice_YMAP:after{clear:both;}

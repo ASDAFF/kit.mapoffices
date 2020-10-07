@@ -1,0 +1,4 @@
+<?
+$MESS["T_WSM_YMAP_CITYSELECT_TYPE"] = "Тип выбора города";
+$MESS["T_WSM_YMAP_CITYSELECT_TYPE_LINK"] = "Ссылки";
+$MESS["T_WSM_YMAP_CITYSELECT_TYPE_SELECT"] = "Селект";
