@@ -106,7 +106,7 @@ $arParams["HIDE_LINK_WHEN_NO_DETAIL"] = $arParams["HIDE_LINK_WHEN_NO_DETAIL"]=="
 
 
 if($arParams["INCLUDE_YMAP_SCRIPT"])
-    $APPLICATION->AddHeadString('<script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU"></script>', true);
+    $APPLICATION->AddHeadString('<script src="//api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU"></script>', true);
 
 
 $arResult["GEO"] = false;
