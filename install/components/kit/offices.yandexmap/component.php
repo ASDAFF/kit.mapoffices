@@ -338,7 +338,7 @@ if($this->StartResultCache(false, array($arParams, $arResult["GEO"], ($arParams[
 			#"SORT"=>"ASC"
 			);
 
-		$rsSection = CIBlockSection::GetList($arSort, $arSFilter, CNT_ACTIVE, array('ID', 'NAME'));
+		$rsSection = CIBlockSection::GetList($arSort, $arSFilter, false, array('ID', 'NAME'));
 		while($res = $rsSection->GetNext())
 		{	
 			if($res["ELEMENT_CNT"] == 0)
@@ -365,7 +365,7 @@ if($this->StartResultCache(false, array($arParams, $arResult["GEO"], ($arParams[
 		elseif(!$city_found && $arParams["CITY_DEF"] == 0)
 			$arParams["CITY_DEF"] = $arParams["PARENT_SECTION"];
 			
-		if(count($arResult["CITY"]) == 0)
+		if(is_array($arResult["CITY"]) && count($arResult["CITY"]) == 0)
 			$arParams["CITY"] = "N";
 
 		//IP

@@ -24,7 +24,7 @@
 		</div>
 	</div>
 
-	<?if(count($arResult["CITY"]) && $arParams["CITY"] == "Y" && $arParams["CITY_SELECTOR"] != "SELECT"):?>
+	<?if(is_array($arResult["CITY"]) && count($arResult["CITY"]) && $arParams["CITY"] == "Y" && $arParams["CITY_SELECTOR"] != "SELECT"):?>
 		
 		<div class="kit_office_city_celector">
 			<?foreach($arResult["CITY"] as $arCity):?>
@@ -32,7 +32,7 @@
 			<?endforeach;?>
 		</div>
 		
-	<?elseif(count($arResult["CITY"]) && $arParams["CITY"] == "Y"):?>
+	<?elseif(is_array($arResult["CITY"]) && count($arResult["CITY"]) && $arParams["CITY"] == "Y"):?>
 	
 		<div class="kit_office_city_celector">
 			<span><?=GetMessage("KIT_MAPOFFICES_CITY")?>:</span>

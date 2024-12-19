@@ -105,9 +105,9 @@ Class kit_mapoffices extends CModule
         return true;
     }
 
-    function UnInstallFiles($_1627882924)
+    function UnInstallFiles()
     {
-        $this->AddLog('UnInstallFiles', $_1627882924, BX_ROOT . '/js/' . $this->MODULE_ID);
+        $this->AddLog('UnInstallFiles', BX_ROOT . '/js/' . $this->MODULE_ID);
         DeleteDirFilesEx(BX_ROOT . '/js/' . $this->MODULE_ID);
         if (is_dir($_1714185542 = $_SERVER['DOCUMENT_ROOT'] . $this->_878322151 . '/install/components')) {
             if ($_951753601 = opendir($_1714185542)) {
@@ -123,13 +123,13 @@ Class kit_mapoffices extends CModule
                 closedir($_951753601);
             }
         }
-        if (!$_1627882924['SAVE_DEMO_SECTION']) {
+
             $_149054505 = 'kit_mapoffices_demo';
             if (trim($_149054505) != '') {
                 $this->AddLog('Uninstall -> remove dir /' . $_149054505);
                 DeleteDirFilesEx('/' . $_149054505);
             }
-        }
+
         return true;
     }
 

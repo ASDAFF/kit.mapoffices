@@ -8,13 +8,13 @@ CModule::AddAutoloadClasses('kit.mapoffices', array('KITMapOfficeGeo' => 'classe
 
 Class KITMapOffice
 {
-    function Script()
+    public static function Script()
     {
         CJSCore::RegisterExt('kit_mapoffices_manager', array('js' => '/bitrix/js/kit.mapoffices/map_manager-min.js', 'skip_core' => false,));
         CJSCore::Init(array('kit_mapoffices_manager'));
     }
 
-    function YMapGeoCode($code)
+    public static function YMapGeoCode($code)
     {
         if (!strlen($code)) return false;
         $arCode = array('geocode' => $code, 'format' => 'json', 'results' => 1,);
@@ -29,7 +29,7 @@ Class KITMapOffice
         return false;
     }
 
-    function GetLocation()
+    public static function GetLocation()
     {
         $str = array();
         if (defined('BX_UTF') && BX_UTF === true){
