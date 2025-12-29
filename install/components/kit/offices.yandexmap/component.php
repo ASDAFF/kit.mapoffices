@@ -341,8 +341,8 @@ if($this->StartResultCache(false, array($arParams, $arResult["GEO"], ($arParams[
 		$rsSection = CIBlockSection::GetList($arSort, $arSFilter, false, array('ID', 'NAME'));
 		while($res = $rsSection->GetNext())
 		{	
-			if($res["ELEMENT_CNT"] == 0)
-				continue;
+//			if($res["ELEMENT_CNT"] == 0)
+//				continue;
 			
 			if($arParams["CITY"] == 'Y' && $arParams["USE_GEOIP"] == 'Y' && $arResult["GEO"] !== false)
 			{
